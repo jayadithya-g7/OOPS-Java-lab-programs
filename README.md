@@ -1,6 +1,6 @@
 # OOPS-Java-lab-programs
 
-outputs:-
+Question & Outputs:-
 -------------------
 ex-1
 ---------
