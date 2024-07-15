@@ -134,3 +134,8 @@ By using this, we are assigning the value of the consumerNo parameter to the con
  * The purpose of a constructor is to set the initial state of an object by
  * assigning values to its member variables.
  */
+
+/*
+this keyword works similar to scanf in c , it takes user inputs and we delcare import scanner to take user inputs
+check by pasting this in vs code
+*/
