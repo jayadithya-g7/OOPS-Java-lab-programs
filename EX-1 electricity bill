@@ -1,0 +1,136 @@
+import java.util.Scanner; //Importing the necessary class which is used to read input from the user.
+
+class ElectricityBill { // Defining the ElectricityBill class
+    // now within the electricity bill class, we delcare the members of a class, as
+    // given in question cust no., name, so on with datatypes declared
+    int consumerNo;
+    String consumerName;
+    int previousMonthReading;
+    int currentMonthReading;
+    String connectionType;
+
+    /*
+     * 
+     * Step 2: Defining the ElectricityBill class
+     * 
+     * The ElectricityBill class is defined to represent an electricity bill. It has
+     * five member variables:
+     * 
+     * consumerNo: an integer to store the consumer's number
+     * consumerName: a string to store the consumer's name
+     * previousMonthReading: an integer to store the previous month's reading
+     * currentMonthReading: an integer to store the current month's reading
+     * connectionType: a string to store the type of electricity connection
+     * (domestic or commercial)
+     * 
+     */
+
+    public ElectricityBill(int consumerNo, String consumerName, int previousMonthReading, int currentMonthReading,
+            String connectionType) { // note electricity bill is a constructor
+        // now assign the values using this keyword to all the mmebers of the class
+        this.consumerNo = consumerNo;
+        this.consumerName = consumerName;
+        this.previousMonthReading = previousMonthReading;
+        this.currentMonthReading = currentMonthReading;
+        this.connectionType = connectionType;
+    }
+
+    /*
+     * 
+     * Step 3: Defining the constructor
+     * 
+     * The constructor is defined to initialize the member variables when an object
+     * of the ElectricityBill class is created.
+     * It takes five parameters: consumerNo, consumerName, previousMonthReading,
+     * currentMonthReading, and connectionType.
+     * In Java, the this keyword is used to refer to the current object being created. It is used to distinguish between the member variables of the class and the parameters of the constructor.
+
+In the constructor, this.consumerNo = consumerNo; means:
+
+    this.consumerNo refers to the consumerNo member variable of the ElectricityBill class
+    consumerNo is the parameter passed to the constructor
+
+By using this, we are assigning the value of the consumerNo parameter to the consumerNo member variable of the class. This is done for all five parameters.
+     * 
+     * 
+     * 
+     */
+    // now 2 cases are there, as given in question, one for domestic , another for
+    // commerical cable as asked in question
+    public double calculateBillAmount() {
+        int unitsConsumed = currentMonthReading - previousMonthReading;
+        double billAmount = 0;
+        if (connectionType.equalsIgnoreCase("domestic")) {
+            if (unitsConsumed <= 100) {
+                billAmount = unitsConsumed * 1;
+            } else if (unitsConsumed <= 200) {
+                billAmount = 100 * 1 + (unitsConsumed - 100) * 2.50;
+            } else if (unitsConsumed <= 500) {
+                billAmount = 100 * 1 + 100 * 2.50 + (unitsConsumed - 200) * 4;
+            } else {
+                billAmount = 100 * 1 + 100 * 2.50 + 300 * 4 + (unitsConsumed - 500) * 6;
+            }
+        } else if (connectionType.equalsIgnoreCase("commercial")) {
+            if (unitsConsumed <= 100) {
+            } else if (unitsConsumed <= 500) {
+                billAmount = 100 * 2 + 100 * 4.50 + (unitsConsumed - 200) * 6;
+            } else {
+                billAmount = 100 * 2 + 100 * 4.50 + 300 * 6 + (unitsConsumed - 500) * 7;
+            }
+        }
+        return billAmount;
+    }
+
+    public void displayBill() {
+        double billAmount = calculateBillAmount(); // call that function here
+        System.out.println("--------------------------------------");// now we will display the print statements for all
+                                                                    // members of a class
+        System.out.println("Electricity Bill");
+        System.out.println("--------------------------------------");
+        System.out.println("Consumer No: " + consumerNo);
+        System.out.println("Consumer Name: " + consumerName);
+        System.out.println("Previous Month Reading: " + previousMonthReading);
+        System.out.println("Current Month Reading: " + currentMonthReading);
+        System.out.println("Connection Type: " + connectionType);
+        System.out.println("Bill Amount: Rs. " + billAmount);
+        System.out.println("--------------------------------------");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Consumer No: ");
+        int consumerNo = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter Consumer Name: ");
+        String consumerName = scanner.nextLine();
+
+        System.out.print("Enter Previous Month Reading: ");
+        int previousMonthReading = scanner.nextInt();
+
+        System.out.print("Enter Current Month Reading: ");
+        int currentMonthReading = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter Connection Type (Domestic/Commercial): ");
+        String connectionType = scanner.nextLine();
+
+        ElectricityBill bill = new ElectricityBill(consumerNo, consumerName, previousMonthReading,
+                currentMonthReading, connectionType);
+        bill.displayBill();
+
+        scanner.close();
+    }
+}
+
+/*
+ * understanding the code
+ * ------------------------
+ * 
+ * In Java, a constructor is a special method that is used to initialize objects
+ * when they are created. It is called when an object is instantiated from a
+ * class.
+ * The purpose of a constructor is to set the initial state of an object by
+ * assigning values to its member variables.
+ */
