@@ -23,6 +23,11 @@ ex-2 b]
 ![image](https://github.com/user-attachments/assets/91517a3c-ca58-4dc1-b292-f97d3217f28a)
 
 
+ex-5]
+-----
+![image](https://github.com/user-attachments/assets/1f0f068d-8bf9-4eb9-8dee-241f755337cc)
+
+
 ![image](https://github.com/user-attachments/assets/c9b553c5-ec16-4125-a02c-17d5712777d9)
 
 
